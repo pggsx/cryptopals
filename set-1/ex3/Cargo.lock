@@ -1,0 +1,21 @@
+[root]
+name = "ex3"
+version = "0.1.0"
+dependencies = [
+ "ascii 0.8.4 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.3.24 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "ascii"
+version = "0.8.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "rustc-serialize"
+version = "0.3.24"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[metadata]
+"checksum ascii 0.8.4 (registry+https://github.com/rust-lang/crates.io-index)" = "4fda371ec4b2c808a2ced31bfd7f1eb216a89d4aebdacf8787494756d4eaa6e5"
+"checksum rustc-serialize 0.3.24 (registry+https://github.com/rust-lang/crates.io-index)" = "dcf128d1287d2ea9d80910b5f1120d0b8eede3fbf1abe91c40d39ea7d51e6fda"

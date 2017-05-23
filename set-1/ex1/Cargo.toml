@@ -1,0 +1,9 @@
+[package]
+name = "ex1"
+version = "0.1.0"
+authors = ["Pavan Gudimetta <pgudimetta@gmail.com>"]
+[dependencies]
+rustc-serialize = "0.3.24"
+base64 = { git = "https://github.com/alicemaz/rust-base64" }
+byteorder = { git = "https://github.com/BurntSushi/byteorder" }
+safemem = { git = "https://github.com/abonander/safemem" }
