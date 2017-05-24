@@ -1,26 +1,41 @@
 extern crate rustc_serialize as serial;
-use serial::hex::{FromHex,ToHex};
+use serial::hex::FromHex;
 extern crate ascii;
-//use ascii::ascii_string::{IntoAsciiString};
-use ascii::IntoAsciiString;
-fn main()
-{
-println!("Single Byte XOR Cipher");
-let ctx = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736".from_hex().unwrap();
-println!("{:?}",ctx);
-let mut tmp_vec:Vec<u8> = Vec::new();
-for x in 0..ctx.len() {
-for y in 0..128{
-let tmp = y ^ ctx[x];
-if tmp >=0 && tmp <= 128{
-tmp_vec.push(tmp);
-let mut vec_str = tmp_vec.into_ascii_string();
-println!("{:?}",vec_str);
+use ascii::AsciiChar;
+use std::process;
+use ascii::ToAsciiChar;
+use std::str;
+fn main() {
+    println!("Single Byte XOR Cipher");
+    let ctx = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
+        .from_hex()
+        .unwrap();
+    //println!("{:?}",ctx);
+		#[derive(Debug, Copy, Clone)]
+    let mut tmp_vec: Vec<char> = Vec::new();
+		#[derive(Debug, Copy, Clone)]
+    let res = "";
+    for y in 0..128 {
+		println!("y is: {}",y);
+		let len = ctx.len()-1;
+        for x in 0..len {
+						println!("x is: {}",x);
+            let tmp = y as u8 ^ ctx[x];
+            //println!("{:b}",tmp);
+            let tmp_char = tmp as char;
+            /*            println!("{:?}", tmp_char.to_ascii_char().unwrap().is_graph());
+            println!("{:?}",
+                     tmp_char.to_ascii_char().unwrap().as_printable_char());*/
+            if tmp_char.to_ascii_char().unwrap().is_print() {
+                tmp_vec.push(tmp_char.to_ascii_char().unwrap().as_printable_char());
+                let res: String = tmp_vec.clone().into_iter().collect();
+                println!("{}", res);
+            } else {
+                println!("Invalid UTF");
+            }
+        }
+								tmp_vec = Vec::new()
+    }
+    //println!("{}", tmp_vec.len());
+    println!("--------------FIN------------------------");
 }
-//println!("{:b}",ctx[x]);
-let test = format!("{:b}",ctx[x]).to_string();
-//println!("{}",test);
-}
-}
-}
-
